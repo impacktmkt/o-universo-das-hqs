@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAINEL COMICS - +70.000 HQs Completas</title>
+    <meta name="description" content="A MAIOR COLEÇÃO DIGITAL DO BRASIL. Marvel, DC Comics, HQs Nacionais e Edições Raras. Acesso Vitalício.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #e50914;
+            --primary-yellow: #ffd700;
+            --primary-orange: #ff6b35;
+            --normal-green: #2ac682;
+            --light-green: #4dd4a3;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --text-white: #ffffff;
+            --text-gray: #b8b8b8;
+            --accent-blue: #0066cc;
+            --light-blue: #4a90e2;
+            --dark-gray: #2c2c54;
+            --medium-gray: #40407a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--dark-gray) 100%);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .comics-section, .featured-comics {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--primary-red);
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--primary-yellow);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            display: block;
+            line-height: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--dark-gray) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('imagens/fundo.webp') center/cover,
+                radial-gradient(circle at 20% 20%, rgba(74, 144, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-yellow), var(--primary-orange));
+            color: var(--darker-bg);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+            animation: pulse 2s infinite;
+            border: 3px solid var(--primary-yellow);
+        }
+
+        .hero-mockup {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0% { 
+                text-shadow: 0 0 20px rgba(42, 198, 130, 0.6);
+                transform: scale(1);
+            }
+            100% { 
+                text-shadow: 0 0 30px rgba(42, 198, 130, 0.8), 0 0 40px rgba(77, 212, 163, 0.4);
+                transform: scale(1.02);
+            }
+        }
+
+
+        .hero-content h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1;
+            text-shadow: 0 0 50px rgba(255, 215, 0, 1);
+            animation: glow 2s ease-in-out infinite alternate;
+            transform: scale(1.05);
+        }
+
+        .highlight-number {
+            color: var(--primary-red);
+            font-size: 1.2em;
+            text-shadow: 0 0 40px rgba(229, 9, 20, 0.8);
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-orange));
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.6);
+        }
+
+        /* Comics Carousel */
+        .comics-section {
+            padding: 4rem 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(74, 144, 226, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 60%),
+                linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comics-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 0%, rgba(255, 215, 0, 0.03) 25%, transparent 50%, rgba(74, 144, 226, 0.03) 75%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .highlight-days {
+            color: var(--primary-red);
+            text-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+            width: 100%;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .comics-carousel {
+            display: flex;
+            gap: 1rem;
+            animation: scroll-infinite 15s linear infinite;
+            width: max-content;
+            cursor: grab;
+            user-select: none;
+            touch-action: pan-y;
+        }
+
+        .comics-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .comics-carousel:active {
+            cursor: grabbing;
+        }
+
+        .comics-carousel.dragging {
+            animation-play-state: paused;
+        }
+
+        .comics-carousel.dragging .comic-card:hover .comic-overlay {
+            transform: translateY(0);
+        }
+
+        @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--primary-yellow);
+            color: var(--darker-bg);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .comic-card {
+            flex-shrink: 0;
+            width: 250px;
+            height: 375px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .comic-card:hover {
+            transform: scale(1.05);
+        }
+
+        .comic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .comic-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .comic-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .comic-card:hover .comic-overlay {
+            transform: translateY(0);
+        }
+
+        .comic-card:not(.dragging):hover .comic-overlay {
+            transform: translateY(0);
+        }
+
+        .comic-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comic-series {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Featured Comics Section */
+        .featured-comics {
+            padding: 4rem 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-comics-carousel {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            cursor: grab;
+            user-select: none;
+            touch-action: pan-y;
+            margin: 2rem 0;
+        }
+
+        #featuredCarousel1 {
+            animation: scroll-infinite 20s linear infinite;
+        }
+
+        #featuredCarousel2 {
+            animation: scroll-infinite-reverse 20s linear infinite;
+        }
+
+        .featured-comics-carousel:active {
+            cursor: grabbing;
+        }
+
+        .featured-comics-carousel.dragging {
+            animation-play-state: paused;
+        }
+
+        .featured-comic-card {
+            width: 200px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-comic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-comic-card:hover {
+            transform: scale(1.05);
+        }
+
+        .featured-comic-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .featured-comic-card .comic-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-comic-card:hover .comic-overlay {
+            transform: translateY(0);
+        }
+
+        .featured-comic-card .comic-overlay h4 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @keyframes scroll-infinite-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .featured-title {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--light-blue);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .featured-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--light-blue), var(--primary-yellow));
+            border-radius: 2px;
+        }
+
+        .featured-carousel-row {
+            margin-bottom: 3rem;
+        }
+
+        .featured-carousel {
+            display: flex;
+            gap: 1.5rem;
+            animation: scroll-infinite 12s linear infinite;
+            width: max-content;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .featured-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .featured-carousel:active {
+            cursor: grabbing;
+        }
+
+        .featured-carousel.dragging {
+            animation-play-state: paused;
+        }
+
+        .featured-carousel.dragging .featured-comic-card:hover .featured-comic-overlay {
+            transform: translateY(0);
+        }
+
+        .featured-comic-card {
+            flex-shrink: 0;
+            width: 230px;
+            height: 345px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .featured-comic-card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-yellow);
+        }
+
+        .featured-comic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-comic-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .featured-comic-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-comic-card:hover .featured-comic-overlay {
+            transform: translateY(0);
+        }
+
+        .featured-comic-card:not(.dragging):hover .featured-comic-overlay {
+            transform: translateY(0);
+        }
+
+        .featured-comic-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-yellow);
+        }
+
+        .featured-comic-series {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--dark-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-yellow));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 0;
+            background: var(--darker-bg);
+        }
+
+        .pricing-title {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--text-white);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pricing-title .highlight {
+            color: var(--primary-yellow);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: visible;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .pricing-card.popular {
+            border: 3px solid var(--normal-green);
+            transform: scale(1.08);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 25px 50px rgba(42, 198, 130, 0.3),
+                0 0 30px rgba(42, 198, 130, 0.2);
+            position: relative;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, var(--primary-yellow), #ffed4e);
+            color: var(--darker-bg);
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 6px 15px rgba(255, 215, 0, 0.4),
+                0 0 10px rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            animation: pulse 2s ease-in-out infinite alternate;
+            white-space: nowrap;
+            border: 2px solid var(--primary-yellow);
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.12) translateY(-20px);
+            box-shadow: 
+                0 35px 70px rgba(42, 198, 130, 0.4),
+                0 0 40px rgba(42, 198, 130, 0.3),
+                0 0 20px rgba(77, 212, 163, 0.2);
+            border-color: var(--light-green);
+        }
+
+        .plan-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .pricing-card.popular .plan-price {
+            color: var(--normal-green);
+            text-shadow: 0 0 20px rgba(42, 198, 130, 0.6);
+            animation: glow 3s ease-in-out infinite alternate;
+            font-size: 3.5rem;
+        }
+
+        .pricing-card.basic-plan .plan-price {
+            color: var(--normal-green);
+        }
+
+        .price-period {
+            font-size: 0.6em;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-left: 0.2rem;
+        }
+
+        .plan-period {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary-yellow);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .plan-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .plan-button:hover::before {
+            left: 100%;
+        }
+
+        .plan-button.basic {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .plan-button.premium {
+            background: linear-gradient(45deg, var(--normal-green), var(--light-green));
+            color: white;
+            box-shadow: 0 10px 30px rgba(42, 198, 130, 0.4);
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-button.premium:hover {
+            background: linear-gradient(45deg, var(--light-green), var(--normal-green));
+            box-shadow: 0 15px 40px rgba(42, 198, 130, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 0;
+            background: var(--dark-bg);
+        }
+
+        .faq-title {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            padding: 4rem 0;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .guarantee-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary-yellow);
+        }
+
+        .guarantee h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .guarantee p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker-bg);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 2px solid var(--primary-red);
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 4rem;
+                letter-spacing: 2px;
+            }
+            
+            .hero-badge {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.5rem;
+                letter-spacing: 0.5px;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .featured-comic-card {
+                width: 160px;
+                height: 240px;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .comic-card {
+                width: 180px;
+                height: 270px;
+            }
+            
+            .featured-comic-card {
+                width: 160px;
+                height: 240px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comics-carousel {
+                gap: 0.5rem;
+            }
+            
+            .featured-carousel {
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.5rem;
+                letter-spacing: 1px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            
+            .featured-comic-card {
+                width: 140px;
+                height: 210px;
+            }
+            
+            .comic-card {
+                width: 160px;
+                height: 240px;
+            }
+            
+            .featured-comic-card {
+                width: 140px;
+                height: 210px;
+            }
+            
+            .pricing-card {
+                padding: 2rem;
+            }
+            
+            .comics-carousel {
+                gap: 0.3rem;
+            }
+            
+            .featured-carousel {
+                gap: 0.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .featured-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-mockup {
+                max-width: 300px;
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .comic-card {
+                width: 140px;
+                height: 210px;
+            }
+            
+            .featured-comic-card {
+                width: 120px;
+                height: 180px;
+            }
+            
+            .comics-carousel {
+                gap: 0.25rem;
+            }
+            
+            .featured-carousel {
+                gap: 0.25rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .comic-card {
+                width: 120px;
+                height: 180px;
+            }
+            
+            .featured-comic-card {
+                width: 100px;
+                height: 150px;
+            }
+            
+            .comics-carousel {
+                gap: 0.2rem;
+            }
+            
+            .featured-carousel {
+                gap: 0.2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Performance optimizations */
+        .comic-card img {
+            will-change: transform;
+        }
+
+        .comics-carousel {
+            will-change: transform;
+        }
+
+        /* Music Toggle Button */
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-orange));
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: white;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+        }
+
+        .music-toggle.muted {
+            background: linear-gradient(45deg, var(--text-gray), var(--medium-gray));
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .music-toggle.muted:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Background Music */
+        #backgroundMusic {
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">UNIVERSO DAS HQ'S</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">A MAIOR COLEÇÃO DIGITAL DO BRASIL</div>
+                    <h1><span class="highlight-number">+70.000</span> HQS COMPLETAS</h1>
+                <h2>O QUE VOCÊ VAI RECEBER:</h2>
+                <img src="imagens/mockup.webp" alt="Mockup do App" class="hero-mockup">
+                <p>Marvel Completa, DC Comics, HQs Nacionais e Edições Raras. Tudo organizado e em alta qualidade!</p>
+                <a href="#pricing" class="cta-button">QUERO ACESSO AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comics Carousel -->
+    <section class="comics-section">
+        <div class="container">
+            <h2 class="section-title">Novos quadrinhos <span class="highlight-days">todos os dias</span></h2>
+            <div class="carousel-container">
+                <div class="comics-carousel" id="comicsCarousel">
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950716/Star-Wars---Doctor-Aphra-034-_2023_-_Digital-Empire_-001.jpg" alt="Doctor Aphra">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Doctor Aphra</div>
+                        <div class="comic-series">Star Wars</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/949549/Batman---One-Dark-Knight-_2021-_-003-000.jpg" alt="Batman">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Batman</div>
+                        <div class="comic-series">DC Comics</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Fantastic Four</div>
+                        <div class="comic-series">Marvel</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/951204/Saga_063-000.jpg" alt="Saga">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Saga</div>
+                        <div class="comic-series">Image Comics</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/951318/The_Transporter_003_-_Bound_by_Darkness-000.jpg" alt="Transporter">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Transporter</div>
+                        <div class="comic-series">Bound by Darkness</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/953342/Superman_006-0000.jpg" alt="Superman">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Superman</div>
+                        <div class="comic-series">DC Comics</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Spider-Man">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Spider-Man</div>
+                        <div class="comic-series">Marvel</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Scarlet Witch</div>
+                        <div class="comic-series">Marvel</div>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950716/Star-Wars---Doctor-Aphra-034-_2023_-_Digital-Empire_-001.jpg" alt="Doctor Aphra">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Doctor Aphra</div>
+                        <div class="comic-series">Star Wars</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/949549/Batman---One-Dark-Knight-_2021-_-003-000.jpg" alt="Batman">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Batman</div>
+                        <div class="comic-series">DC Comics</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Fantastic Four</div>
+                        <div class="comic-series">Marvel</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/951204/Saga_063-000.jpg" alt="Saga">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Saga</div>
+                        <div class="comic-series">Image Comics</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/951318/The_Transporter_003_-_Bound_by_Darkness-000.jpg" alt="Transporter">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Transporter</div>
+                        <div class="comic-series">Bound by Darkness</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/953342/Superman_006-0000.jpg" alt="Superman">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Superman</div>
+                        <div class="comic-series">DC Comics</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Spider-Man">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Spider-Man</div>
+                        <div class="comic-series">Marvel</div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch">
+                    <div class="comic-overlay">
+                        <div class="comic-title">Scarlet Witch</div>
+                        <div class="comic-series">Marvel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📚</div>
+                    <h3>Marvel Completa</h3>
+                    <p>Homem-Aranha, X-Men, Vingadores, Iron Man, Capitão América, Thor. Todas as sagas icônicas.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🦇</div>
+                    <h3>DC Comics Completa</h3>
+                    <p>Batman, Superman, Liga da Justiça, Flash, Mulher-Maravilha, Aquaman. Universo DC sem limites.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⭐</div>
+                    <h3>HQs Nacionais</h3>
+                    <p>Turma da Mônica Jovem, Graphic MSP, Holy Avenger. Os melhores quadrinistas brasileiros.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Edições Raras</h3>
+                    <p>Primeiras edições históricas, Crossovers épicos, Sagas completas organizadas.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✅</div>
+                    <h3>Organizado por Editora</h3>
+                    <p>Tudo separado e fácil de encontrar. Qualidade premium em PDFs de alta resolução.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Leitura Offline</h3>
+                    <p>Baixe e leia sem internet. Compatível com celular, tablet e computador.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Comics Section -->
+    <section class="featured-comics">
+        <div class="container">
+            <h2 class="section-title">HQs em <span class="highlight-days">destaque</span></h2>
+            
+            <!-- First Carousel -->
+            <div class="featured-comics-carousel" id="featuredCarousel1">
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950716/Star-Wars---Doctor-Aphra-034-_2023_-_Digital-Empire_-001.jpg" alt="Doctor Aphra">
+                        <div class="comic-overlay">
+                            <h4>Star Wars: Doctor Aphra</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four">
+                        <div class="comic-overlay">
+                            <h4>Fantastic Four</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Miles Morales">
+                        <div class="comic-overlay">
+                            <h4>Miles Morales: Spider-Man</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950092/00.jpg" alt="Batman">
+                        <div class="comic-overlay">
+                            <h4>Batman</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950358/page_01.jpg" alt="Comic">
+                        <div class="comic-overlay">
+                            <h4>Comic Exclusivo</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch">
+                        <div class="comic-overlay">
+                            <h4>Scarlet Witch</h4>
+                        </div>
+                    </div>
+                    <!-- Duplicata para efeito infinito -->
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950716/Star-Wars---Doctor-Aphra-034-_2023_-_Digital-Empire_-001.jpg" alt="Doctor Aphra">
+                        <div class="comic-overlay">
+                            <h4>Star Wars: Doctor Aphra</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four">
+                        <div class="comic-overlay">
+                            <h4>Fantastic Four</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Miles Morales">
+                        <div class="comic-overlay">
+                            <h4>Miles Morales: Spider-Man</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950092/00.jpg" alt="Batman">
+                        <div class="comic-overlay">
+                            <h4>Batman</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950358/page_01.jpg" alt="Comic">
+                        <div class="comic-overlay">
+                            <h4>Comic Exclusivo</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch">
+                        <div class="comic-overlay">
+                            <h4>Scarlet Witch</h4>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- Second Carousel -->
+            <div class="featured-comics-carousel" id="featuredCarousel2">
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/948510/Batman_138-0000.jpg" alt="Batman">
+                        <div class="comic-overlay">
+                            <h4>Batman</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/195355/All-New_X-Men_041-000_c_pia_c_pia.jpg" alt="X-Men">
+                        <div class="comic-overlay">
+                            <h4>X-Men</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/209234/Spider-Man_Requiem__2_001.jpg" alt="Spider-Man">
+                        <div class="comic-overlay">
+                            <h4>Spider-Man</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/263049/Justice_League__2011-__052-000_c_pia_c_pia.jpg" alt="Justice League">
+                        <div class="comic-overlay">
+                            <h4>Justice League</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/644412/Uncanny_X-Men__2013-__600-000.jpg" alt="Uncanny X-Men">
+                        <div class="comic-overlay">
+                            <h4>Uncanny X-Men</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/736164/Invincible-144-000.jpg" alt="Invincible">
+                        <div class="comic-overlay">
+                            <h4>Invincible</h4>
+                        </div>
+                    </div>
+                    <!-- Duplicata para efeito infinito -->
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/948510/Batman_138-0000.jpg" alt="Batman">
+                        <div class="comic-overlay">
+                            <h4>Batman</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/195355/All-New_X-Men_041-000_c_pia_c_pia.jpg" alt="X-Men">
+                        <div class="comic-overlay">
+                            <h4>X-Men</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/209234/Spider-Man_Requiem__2_001.jpg" alt="Spider-Man">
+                        <div class="comic-overlay">
+                            <h4>Spider-Man</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/263049/Justice_League__2011-__052-000_c_pia_c_pia.jpg" alt="Justice League">
+                        <div class="comic-overlay">
+                            <h4>Justice League</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/644412/Uncanny_X-Men__2013-__600-000.jpg" alt="Uncanny X-Men">
+                        <div class="comic-overlay">
+                            <h4>Uncanny X-Men</h4>
+                        </div>
+                    </div>
+                    <div class="featured-comic-card">
+                        <img src="hqs/hqs/uploads/picture/image/736164/Invincible-144-000.jpg" alt="Invincible">
+                        <div class="comic-overlay">
+                            <h4>Invincible</h4>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="pricing-title">Escolha seu <span class="highlight">plano</span></h2>
+            <div class="pricing-grid">
+                <div class="pricing-card basic-plan">
+                    <h3 class="plan-name">Plano Básico</h3>
+                    <div class="plan-price">R$ 9,90<span class="price-period">/mês</span></div>
+                    <ul class="plan-features">
+                        <li>Acesso completo ao app</li>
+                    </ul>
+                    <button class="plan-button basic">QUERO O PLANO BÁSICO!</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MAIS POPULAR</div>
+                    <h3 class="plan-name">Plano Premium</h3>
+                    <div class="plan-price">R$ 27,00</div>
+                    <div class="plan-period">Pagamento único - acesso para sempre</div>
+                    <ul class="plan-features">
+                        <li>Acesso completo ao App</li>
+                        <li>Pagamento único acesso para sempre</li>
+                        <li>Atualizações diárias</li>
+                        <li>HQs raras e edições especiais</li>
+                        <li>Acesso a Bonus Exclusivos</li>
+                    </ul>
+                    <button class="plan-button premium">QUERO O PLANO PREMIUM</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <img src="Imagens/selo.webp" alt="Selo de Garantia" class="guarantee-seal">
+                <h3>Garantia Blindada de 30 Dias</h3>
+                <p>Seu risco é zero. Se por qualquer motivo não gostar, devolvemos 100% do seu dinheiro.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="faq-title">FAQ</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como posso acessar os quadrinhos?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Após a assinatura, você receberá acesso imediato ao nosso app com mais de 100.000 títulos de quadrinhos disponíveis para leitura online.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso ler offline?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! Você pode baixar seus quadrinhos favoritos e ler offline em qualquer lugar, sem precisar de conexão com a internet.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Há novos quadrinhos adicionados regularmente?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim, adicionamos novos quadrinhos todos os dias ao nosso catálogo, incluindo lançamentos e edições especiais.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>O plano premium vale a pena?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>O plano premium oferece pagamento único com acesso vitalício, além de conteúdo exclusivo como HQs raras e Bonus Exclusivos.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso cancelar minha assinatura?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim, você pode cancelar sua assinatura a qualquer momento. O plano premium oferece acesso vitalício com pagamento único.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>O app funciona em todos os dispositivos?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim, nosso app funciona em smartphones, tablets e computadores, com sincronização automática entre todos os seus dispositivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Painel Comics. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="audios/1003 editada.MP3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button class="music-toggle" id="musicToggle" title="Desativar/Ativar música de fundo">
+        🔊
+    </button>
+
+    <script>
+        // Button Sound Effect
+        function playButtonSound() {
+            const audio = new Audio('audios/1003.MP3');
+            audio.volume = 0.7; // Volume moderado
+            audio.play().catch(e => {
+                // Fallback para navegadores que bloqueiam autoplay
+                console.log('Audio play failed:', e);
+            });
+        }
+
+        // Add sound to specific buttons only
+        function addSoundToButtons() {
+            // Apenas botões CTA e botão de música terão som
+            const buttons = document.querySelectorAll('.cta-button, .music-toggle');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    playButtonSound();
+                });
+            });
+        }
+
+        // Background Music Control
+        let backgroundMusic = null;
+        let isMusicMuted = false;
+
+        function initBackgroundMusic() {
+            backgroundMusic = document.getElementById('backgroundMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            
+            // Check if user has previously muted music
+            const savedMuteState = localStorage.getItem('musicMuted');
+            if (savedMuteState === 'true') {
+                isMusicMuted = true;
+                musicToggle.classList.add('muted');
+                musicToggle.innerHTML = '🔇';
+            } else {
+                // Try to play music on user interaction
+                document.addEventListener('click', function() {
+                    if (!isMusicMuted && backgroundMusic.paused) {
+                        backgroundMusic.volume = 0.15; // Volume baixo para não incomodar
+                        backgroundMusic.play().catch(e => {
+                            console.log('Background music play failed:', e);
+                        });
+                    }
+                }, { once: true });
+            }
+
+            // Toggle music on button click
+            musicToggle.addEventListener('click', function() {
+                if (isMusicMuted) {
+                    // Unmute
+                    isMusicMuted = false;
+                    musicToggle.classList.remove('muted');
+                    musicToggle.innerHTML = '🔊';
+                    backgroundMusic.volume = 0.15;
+                    backgroundMusic.play().catch(e => {
+                        console.log('Background music play failed:', e);
+                    });
+                    localStorage.setItem('musicMuted', 'false');
+                } else {
+                    // Mute
+                    isMusicMuted = true;
+                    musicToggle.classList.add('muted');
+                    musicToggle.innerHTML = '🔇';
+                    backgroundMusic.pause();
+                    localStorage.setItem('musicMuted', 'true');
+                }
+            });
+        }
+
+        // Initialize sound on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            addSoundToButtons();
+            initBackgroundMusic();
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Pricing button interactions (no sound)
+        document.querySelectorAll('.plan-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // No sound for plan buttons
+                if (this.classList.contains('basic')) {
+                    // Redirect to basic plan page
+                    window.location.href = 'plano-basico.html';
+                } else if (this.classList.contains('premium')) {
+                    // Redirect to premium plan page
+                    window.location.href = 'plano-premium.html';
+                }
+            });
+        });
+
+        // Optimize images loading
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.loading = 'lazy';
+        });
+
+        // Interactive Carousel Controls with Touch Support
+        let currentSlide = 0;
+        const carousel = document.getElementById('comicsCarousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideWidth = 270; // 250px card + 20px gap
+        const totalSlides = carousel ? carousel.children.length / 2 : 0; // Divide by 2 because we duplicate cards
+
+        // Touch/Swipe variables
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        let autoScrollInterval;
+
+        if (carousel) {
+            // Button controls
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                    }
+                });
+            }
+
+            // Touch events for mobile
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                carousel.style.transition = 'none';
+                carousel.classList.add('dragging');
+                clearInterval(autoScrollInterval);
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+                const diffX = startX - currentX;
+                const currentTransform = -currentSlide * slideWidth;
+                carousel.style.transform = `translateX(${currentTransform - diffX}px)`;
+            });
+
+            carousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                carousel.classList.remove('dragging');
+                carousel.style.transition = 'transform 0.3s ease';
+                
+                const diffX = startX - currentX;
+                const threshold = 50;
+
+                if (diffX > threshold && currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                } else if (diffX < -threshold && currentSlide > 0) {
+                    currentSlide--;
+                }
+
+                carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                
+                // Restart auto-scroll
+                autoScrollInterval = setInterval(() => {
+                    if (!isDragging) {
+                        if (currentSlide < totalSlides - 1) {
+                            currentSlide++;
+                        } else {
+                            currentSlide = 0;
+                        }
+                        carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                    }
+                }, 1500);
+            });
+
+            // Mouse events for desktop
+            carousel.addEventListener('mousedown', (e) => {
+                startX = e.clientX;
+                isDragging = true;
+                carousel.style.transition = 'none';
+                carousel.classList.add('dragging');
+                clearInterval(autoScrollInterval);
+                e.preventDefault();
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                currentX = e.clientX;
+                const diffX = startX - currentX;
+                const currentTransform = -currentSlide * slideWidth;
+                carousel.style.transform = `translateX(${currentTransform - diffX}px)`;
+            });
+
+            carousel.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                carousel.classList.remove('dragging');
+                carousel.style.transition = 'transform 0.3s ease';
+                
+                const diffX = startX - currentX;
+                const threshold = 50;
+
+                if (diffX > threshold && currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                } else if (diffX < -threshold && currentSlide > 0) {
+                    currentSlide--;
+                }
+
+                carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                
+                // Restart auto-scroll
+                autoScrollInterval = setInterval(() => {
+                    if (!isDragging) {
+                        if (currentSlide < totalSlides - 1) {
+                            currentSlide++;
+                        } else {
+                            currentSlide = 0;
+                        }
+                        carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                    }
+                }, 1500);
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    carousel.classList.remove('dragging');
+                    carousel.style.transition = 'transform 0.3s ease';
+                    carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                }
+            });
+
+            // Start auto-scroll
+            autoScrollInterval = setInterval(() => {
+                if (!isDragging) {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                    } else {
+                        currentSlide = 0;
+                    }
+                    carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                }
+            }, 3000);
+        }
+
+        // Featured Carousels Touch Support
+        const featuredCarousels = ['featuredCarousel1', 'featuredCarousel2'];
+        
+        featuredCarousels.forEach(carouselId => {
+            const carousel = document.getElementById(carouselId);
+            if (carousel) {
+                let startX = 0;
+                let currentX = 0;
+                let isDragging = false;
+
+                // Touch events for mobile
+                carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                    carousel.style.transition = 'none';
+                    carousel.classList.add('dragging');
+                });
+
+                carousel.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    currentX = e.touches[0].clientX;
+                    const diffX = startX - currentX;
+                    carousel.style.transform = `translateX(${-diffX}px)`;
+                });
+
+                carousel.addEventListener('touchend', (e) => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    carousel.classList.remove('dragging');
+                    carousel.style.transition = 'transform 0.3s ease';
+                    carousel.style.transform = 'translateX(0)';
+                });
+
+                // Mouse events for desktop
+                carousel.addEventListener('mousedown', (e) => {
+                    startX = e.clientX;
+                    isDragging = true;
+                    carousel.style.transition = 'none';
+                    carousel.classList.add('dragging');
+                    e.preventDefault();
+                });
+
+                carousel.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    currentX = e.clientX;
+                    const diffX = startX - currentX;
+                    carousel.style.transform = `translateX(${-diffX}px)`;
+                });
+
+                carousel.addEventListener('mouseup', (e) => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    carousel.classList.remove('dragging');
+                    carousel.style.transition = 'transform 0.3s ease';
+                    carousel.style.transform = 'translateX(0)';
+                });
+
+                carousel.addEventListener('mouseleave', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                        carousel.classList.remove('dragging');
+                        carousel.style.transition = 'transform 0.3s ease';
+                        carousel.style.transform = 'translateX(0)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

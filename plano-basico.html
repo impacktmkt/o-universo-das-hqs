@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 OFERTA ESPECIAL - UNIVERSO DAS HQ's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #e50914;
+            --primary-yellow: #ffd700;
+            --primary-orange: #ff6b35;
+            --normal-green: #2ac682;
+            --light-green: #4dd4a3;
+            --dark-bg: #0f0f1f;
+            --darker-bg: #0a0a15;
+            --text-white: #ffffff;
+            --text-gray: #b8b8b8;
+            --accent-blue: #0066cc;
+            --dark-gray: #1a1a2e;
+            --medium-gray: #2c2c54;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a15 0%, #0f0f1f 25%, #0d0d18 50%, #0a0a15 75%, #0f0f1f 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-yellow);
+            animation: confetti-fall 3s ease-out forwards;
+            z-index: 1000;
+            border-radius: 3px;
+        }
+
+        .confetti:nth-child(odd) {
+            background: var(--primary-red);
+            border-radius: 50%;
+        }
+
+        .confetti:nth-child(3n) {
+            background: var(--normal-green);
+            width: 14px;
+            height: 14px;
+        }
+
+        .confetti:nth-child(4n) {
+            background: var(--primary-orange);
+            width: 18px;
+            height: 18px;
+        }
+
+        .confetti:nth-child(5n) {
+            background: var(--accent-blue);
+            width: 12px;
+            height: 12px;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            10% {
+                transform: translateY(-80vh) rotate(90deg) scale(1.2);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(0vh) rotate(180deg) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+            margin-top: 9rem;
+        }
+
+        .countdown-timer {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.95) 0%, rgba(255, 107, 53, 0.95) 100%);
+            border: none;
+            border-bottom: 3px solid var(--primary-red);
+            border-radius: 0;
+            padding: 0.5rem 2rem;
+            text-align: center;
+            margin-bottom: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(229, 9, 20, 0.6);
+            height: auto;
+            min-height: 60px;
+        }
+
+        .countdown-timer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary-red), transparent);
+            animation: rotate 3s linear infinite;
+            opacity: 0.3;
+        }
+
+        .countdown-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--text-white);
+            margin-bottom: 0.2rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .countdown-display {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-yellow);
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+            margin-bottom: 0.1rem;
+            position: relative;
+            z-index: 2;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .congratulations {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--darker-bg);
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite alternate;
+            background: linear-gradient(45deg, var(--primary-yellow), #ffed4e);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            border: 3px solid var(--primary-yellow);
+            box-shadow: 
+                0 10px 30px rgba(255, 215, 0, 0.4),
+                0 0 20px rgba(255, 215, 0, 0.3);
+            text-shadow: none;
+        }
+
+        @keyframes glow {
+            from { 
+                box-shadow: 
+                    0 10px 30px rgba(255, 215, 0, 0.4),
+                    0 0 20px rgba(255, 215, 0, 0.3);
+            }
+            to { 
+                box-shadow: 
+                    0 15px 40px rgba(255, 215, 0, 0.6),
+                    0 0 30px rgba(255, 215, 0, 0.5),
+                    0 0 15px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .top-price-section {
+            background: linear-gradient(135deg, rgba(42, 198, 130, 0.15) 0%, rgba(77, 212, 163, 0.15) 100%);
+            border: 2px solid var(--normal-green);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-price-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--normal-green), transparent);
+            animation: rotate 6s linear infinite;
+            opacity: 0.1;
+        }
+
+        .top-price-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .top-price-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .top-old-price {
+            font-size: 2.5rem;
+            color: var(--text-gray);
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+
+        .top-new-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            color: var(--normal-green);
+            text-shadow: 0 0 25px rgba(42, 198, 130, 0.8);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .top-discount {
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-orange));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+        }
+
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-card {
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .comparison-card.negative {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border: 2px solid var(--primary-red);
+        }
+
+        .comparison-card.positive {
+            background: linear-gradient(135deg, rgba(42, 198, 130, 0.1) 0%, rgba(77, 212, 163, 0.1) 100%);
+            border: 2px solid var(--normal-green);
+        }
+
+        .comparison-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-card.negative .comparison-title {
+            color: var(--primary-red);
+        }
+
+        .comparison-card.positive .comparison-title {
+            color: var(--normal-green);
+        }
+
+        .comparison-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .comparison-list li {
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .comparison-list li::before {
+            content: '❌';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+        }
+
+        .comparison-card.positive .comparison-list li::before {
+            content: '✅';
+            color: var(--normal-green);
+        }
+
+        .offer-section {
+            background: linear-gradient(135deg, rgba(42, 198, 130, 0.2) 0%, rgba(77, 212, 163, 0.2) 100%);
+            border: 4px solid var(--normal-green);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 60px rgba(42, 198, 130, 0.3),
+                0 0 40px rgba(42, 198, 130, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .offer-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--normal-green), transparent);
+            animation: rotate 3s linear infinite;
+            opacity: 0.15;
+        }
+
+        .offer-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .offer-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1.5rem;
+            text-shadow: 
+                0 0 25px rgba(255, 215, 0, 0.8),
+                0 0 50px rgba(255, 215, 0, 0.4);
+            animation: pulse 2s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .price-comparison {
+            margin: 2.5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .old-price {
+            font-size: 3.5rem;
+            color: var(--primary-red);
+            text-decoration: line-through;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+        }
+
+        .price-separator {
+            font-size: 2.5rem;
+            color: var(--text-gray);
+            margin: 0.2rem 0;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .new-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 8rem;
+            color: var(--normal-green);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .price-description {
+            font-size: 1.3rem;
+            color: var(--text-white);
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--normal-green), var(--light-green));
+            color: white;
+            border: 3px solid var(--normal-green);
+            padding: 1.5rem 4rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 15px 40px rgba(42, 198, 130, 0.5),
+                0 0 20px rgba(42, 198, 130, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 1rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 60px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(42, 198, 130, 0.7),
+                0 0 30px rgba(42, 198, 130, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--text-gray);
+            border: 2px solid var(--text-gray);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-button:hover {
+            color: var(--text-white);
+            border-color: var(--text-white);
+        }
+
+        .guarantee {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .footer {
+            background: var(--darker-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--normal-green);
+        }
+
+
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .congratulations {
+                font-size: 2.2rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .top-price-title {
+                font-size: 2.5rem;
+            }
+
+            .top-price-comparison {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .top-old-price {
+                font-size: 2rem;
+            }
+
+            .top-new-price {
+                font-size: 3.5rem;
+            }
+
+            .top-discount {
+                font-size: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .countdown-title {
+                font-size: 1.4rem;
+            }
+
+            .countdown-display {
+                font-size: 3rem;
+            }
+
+
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .offer-title {
+                font-size: 2.5rem;
+            }
+
+            .old-price {
+                font-size: 2.5rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .price-separator {
+                font-size: 1.8rem;
+                margin: 0.1rem 0;
+            }
+
+            .new-price {
+                font-size: 5.5rem;
+            }
+
+            .offer-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+            }
+
+            .footer {
+                padding: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <div class="countdown-timer">
+        <h2 class="countdown-title">⏰ OFERTA LIMITADA!</h2>
+        <div class="countdown-display" id="countdown">07:31</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="congratulations">🎉 PARABÉNS! VOCÊ GANHOU UM DESCONTO EXCLUSIVO!</h1>
+            <p class="subtitle">Oferta especial só para você, que estava prestes a escolher o plano básico.</p>
+        </div>
+
+        <div class="top-price-section">
+            <h2 class="top-price-title">🔥 OFERTA ESPECIAL DO PLANO PREMIUM 🔥</h2>
+            <div class="top-price-comparison">
+                <div class="top-old-price">De R$ 27,00</div>
+                <div class="top-new-price">R$ 19,90</div>
+                <div class="top-discount">-26% OFF</div>
+            </div>
+            <p style="color: var(--text-white); font-size: 1.1rem; margin-top: 1rem;">
+                <strong>Pagamento único - Acesso vitalício!</strong>
+            </p>
+        </div>
+
+
+        <div class="comparison-grid">
+            <div class="comparison-card negative">
+                <h3 class="comparison-title">❌ Por que NÃO escolher o básico:</h3>
+                <ul class="comparison-list">
+                    <li>Pagamento mensal (gasto maior no longo prazo)</li>
+                    <li>Sem HQs raras e edições especiais</li>
+                    <li>Sem bônus exclusivos</li>
+                    <li>Nunca terá acesso vitalício</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card positive">
+                <h3 class="comparison-title">✅ Por que escolher o Plano Premium:</h3>
+                <ul class="comparison-list">
+                    <li>Acesso vitalício (paga uma vez só)</li>
+                    <li>Atualizações diárias</li>
+                    <li>HQs raras + edições especiais</li>
+                    <li>Bônus exclusivos</li>
+                    <li>Economia de mais de R$ 50,00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="offer-section">
+            <h2 class="offer-title">🔥 OFERTA ESPECIAL DO PLANO PREMIUM 🔥</h2>
+            
+            <div class="price-comparison">
+                <div class="old-price">De R$ 27,00</div>
+                <div class="price-separator">por apenas</div>
+                <div class="new-price">R$ 19,90</div>
+                <div class="price-description">(pagamento único – acesso para sempre!)</div>
+            </div>
+
+            <a href="#" class="cta-button">👉 QUERO O PREMIUM!</a>
+            
+            <div class="guarantee">
+                <p>(Pagamento seguro: Pix, Cartão, Boleto – Garantia 7 dias)</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="secondary-button">👉 Prefere continuar no plano básico? Clique aqui.</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-copyright">
+                © 2024 UNIVERSO DAS HQ'S. Todos os direitos reservados.
+            </p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Termos de Uso</a>
+                <a href="#" class="footer-link">Política de Privacidade</a>
+                <a href="#" class="footer-link">Suporte</a>
+                <a href="#" class="footer-link">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Confetti Explosion on Page Load
+        function createConfettiExplosion() {
+            const confettiContainer = document.getElementById('confetti-container');
+            const colors = ['#ffd700', '#ff6b35', '#e50914', '#2ac682', '#0066cc'];
+            
+            // Play confetti sound when visual effect starts
+            playConfettiSoundOnce();
+            
+            // Create MORE confetti explosion from top of screen - INSTANT
+            for (let i = 0; i < 400; i++) { // Increased from 200 to 400
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random position across the top of the screen
+                const x = Math.random() * 100;
+                const y = -10 - Math.random() * 20;
+                
+                confetti.style.left = x + '%';
+                confetti.style.top = y + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = '0s'; // INSTANT - no delay
+                confetti.style.animationDuration = (Math.random() * 2 + 4) + 's'; // Slower: 4-6 seconds
+                
+                confettiContainer.appendChild(confetti);
+            }
+            
+            // Remove confetti after animation (longer time for slower animation)
+            setTimeout(() => {
+                confettiContainer.innerHTML = '';
+            }, 8000); // Increased from 4000 to 8000
+        }
+
+        // Countdown Timer - 7 minutes and 31 seconds
+        function startCountdown() {
+            let timeLeft = 7 * 60 + 31; // 7 minutes and 31 seconds in seconds
+            const countdownElement = document.getElementById('countdown');
+            
+            function updateCountdown() {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                
+                // Format with leading zeros
+                const formattedTime = 
+                    minutes.toString().padStart(2, '0') + ':' + 
+                    seconds.toString().padStart(2, '0');
+                
+                countdownElement.textContent = formattedTime;
+                
+                if (timeLeft <= 0) {
+                    countdownElement.textContent = '00:00';
+                    countdownElement.style.color = 'var(--primary-red)';
+                    countdownElement.style.animation = 'none';
+                    return;
+                }
+                
+                timeLeft--;
+            }
+            
+            // Update immediately
+            updateCountdown();
+            
+            // Update every second
+            const interval = setInterval(updateCountdown, 1000);
+        }
+        
+        // Button Sound Effect
+        function playButtonSound() {
+            const audio = new Audio('audios/1003.MP3');
+            audio.volume = 0.7; // Volume moderado
+            audio.play().catch(e => {
+                // Fallback para navegadores que bloqueiam autoplay
+                console.log('Audio play failed:', e);
+            });
+        }
+
+        // No button sounds
+        function addSoundToButtons() {
+            // No sounds for any buttons
+        }
+
+        // Confetti Sound Effect - Play once with auto-play and user interaction fallback
+        let confettiSoundPlayed = false;
+        
+        function playConfettiSoundOnce() {
+            if (confettiSoundPlayed) return; // Prevent multiple plays
+            
+            const audio = new Audio('audios/Confetti.mp3');
+            audio.volume = 0.8;
+            audio.preload = 'auto';
+            
+            audio.play().then(() => {
+                confettiSoundPlayed = true;
+                console.log('Confetti sound played successfully');
+            }).catch(e => {
+                console.log('Confetti sound auto-play failed:', e);
+                // Will try again on user interaction
+            });
+        }
+        
+        // Setup user interaction fallback
+        function setupUserInteractionFallback() {
+            const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
+            
+            function handleFirstInteraction() {
+                if (!confettiSoundPlayed) {
+                    playConfettiSoundOnce();
+                }
+                // Remove all event listeners after first interaction
+                events.forEach(event => {
+                    document.removeEventListener(event, handleFirstInteraction);
+                });
+            }
+            
+            // Add event listeners for first user interaction
+            events.forEach(event => {
+                document.addEventListener(event, handleFirstInteraction, { once: true });
+            });
+        }
+
+        // Initialize sound on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            addSoundToButtons();
+            
+            // Try to play sound immediately
+            playConfettiSoundOnce();
+            
+            // Setup fallback for user interaction
+            setupUserInteractionFallback();
+        });
+
+        // Start confetti explosion and countdown when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start confetti immediately
+            createConfettiExplosion();
+            startCountdown();
+            addSoundToButtons();
+        });
+    </script>
+
+</body>
+</html>
