@@ -1785,17 +1785,17 @@
                     <h1><span class="highlight-number">+70.000</span> HQS COMPLETAS</h1>
                 
                 <!-- Video Embed -->
-                <div class="video-container">
+                <div class="video-container" style="margin-top: 2rem;">
                     <script src="https://fast.wistia.com/player.js" async></script>
                     <script src="https://fast.wistia.com/embed/m5uogzhwyc.js" async type="module"></script>
                     <style>wistia-player[media-id='m5uogzhwyc']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/m5uogzhwyc/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
                     <wistia-player media-id="m5uogzhwyc" aspect="0.5625"></wistia-player>
                 </div>
                 
-                <h2>O QUE VOCÊ VAI RECEBER:</h2>
+                <h2 style="margin-top: 2rem;">O QUE VOCÊ VAI RECEBER:</h2>
                 <img src="Imagens/mockup - Copia.webp" alt="Mockup do App" class="hero-mockup">
                 <p>Marvel Completa, DC Comics, HQs Nacionais e Edições Raras. Tudo organizado e em alta qualidade!</p>
-                <a href="#pricing" class="cta-button">QUERO ACESSO AGORA</a>
+                <a href="#pricing" class="cta-button" style="margin-bottom: 3rem;">QUERO ACESSO AGORA</a>
             </div>
         </div>
     </section>
@@ -2264,7 +2264,7 @@
         // Button Sound Effect
         function playButtonSound() {
             const audio = new Audio('audios/1003.MP3');
-            audio.volume = 0.7; // Volume moderado
+            audio.volume = 0.49; // Volume reduzido em 30%
             audio.play().catch(e => {
                 // Fallback para navegadores que bloqueiam autoplay
                 console.log('Audio play failed:', e);
@@ -2586,7 +2586,7 @@
 
         function playButtonSound() {
             const audio = new Audio('audios/1003.MP3');
-            audio.volume = 0.2;
+            audio.volume = 0.14;
             audio.play().catch(e => {
                 console.log('Audio play failed:', e);
             });
