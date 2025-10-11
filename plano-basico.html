@@ -854,12 +854,34 @@
             setupUserInteractionFallback();
         });
 
+        // Button click handlers
+        function setupButtonHandlers() {
+            // Main CTA button - redirect to premium checkout
+            const mainButton = document.querySelector('.cta-button');
+            if (mainButton) {
+                mainButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'https://lastlink.com/p/CF1DC18BB/checkout-payment/';
+                });
+            }
+
+            // Secondary button - redirect to basic plan checkout
+            const secondaryButton = document.querySelector('.secondary-button');
+            if (secondaryButton) {
+                secondaryButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'https://lastlink.com/p/CB34A30F8/checkout-payment/';
+                });
+            }
+        }
+
         // Start confetti explosion and countdown when page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Start confetti immediately
             createConfettiExplosion();
             startCountdown();
             addSoundToButtons();
+            setupButtonHandlers();
         });
     </script>
 
