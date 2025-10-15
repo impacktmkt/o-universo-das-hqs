@@ -2395,16 +2395,28 @@
             }
         });
 
-        // Pricing button interactions (no sound)
+		// Helper to redirect preserving current URL query parameters
+		function redirectWithParams(targetUrl) {
+			const currentSearch = window.location.search;
+			if (!currentSearch) {
+				window.location.href = targetUrl;
+				return;
+			}
+			const hasQuery = targetUrl.indexOf('?') !== -1;
+			const separator = hasQuery ? '&' : '';
+			window.location.href = hasQuery ? (targetUrl + separator + currentSearch.substring(1)) : (targetUrl + currentSearch);
+		}
+
+		// Pricing button interactions (no sound)
         document.querySelectorAll('.plan-button').forEach(button => {
             button.addEventListener('click', function(e) {
                 // No sound for plan buttons
                 if (this.classList.contains('basic')) {
                     // Redirect to basic plan page
-                    window.location.href = 'plano-basico.html';
+					redirectWithParams('plano-basico.html');
                 } else if (this.classList.contains('premium')) {
                     // Redirect to premium plan checkout
-                    window.location.href = 'https://lastlink.com/p/CDFB0EA55/checkout-payment';
+					redirectWithParams('https://lastlink.com/p/CDFB0EA55/checkout-payment');
                 }
             });
         });
