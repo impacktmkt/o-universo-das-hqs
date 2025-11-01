@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎉 OFERTA ESPECIAL - UNIVERSO DAS HQ's</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- UTMify Script -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
     <style>
         :root {
             --primary-red: #e50914;
@@ -163,10 +171,22 @@
 
 
         .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            margin-top: 3rem;
+            text-align: left;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
             position: relative;
+            background: rgba(15, 15, 31, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            max-width: 90px;
+            height: auto;
+            margin-bottom: 0;
         }
 
         .congratulations {
@@ -554,6 +574,16 @@
                 padding: 1rem;
             }
 
+            .header {
+                padding: 0.35rem 0.8rem;
+                margin-top: 2rem;
+            }
+
+            .header-logo {
+                max-width: 75px;
+                margin-bottom: 0;
+            }
+
             .congratulations {
                 font-size: 2.2rem;
                 padding: 1rem 1.5rem;
@@ -646,6 +676,7 @@
 
     <div class="container">
         <div class="header">
+            <img src="Imagens/Logo.png" alt="Logo" class="header-logo">
             <h1 class="congratulations">🎉 PARABÉNS! VOCÊ GANHOU UM DESCONTO EXCLUSIVO!</h1>
             <p class="subtitle">Oferta especial só para você, que estava prestes a escolher o plano básico.</p>
         </div>
@@ -711,7 +742,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-copyright">
-                © 2024 UNIVERSO DAS HQ'S. Todos os direitos reservados.
+                © 2024. Todos os direitos reservados.
             </p>
             <div class="footer-links">
                 <a href="#" class="footer-link">Termos de Uso</a>
@@ -724,13 +755,29 @@
 
 
     <script>
+        // Limpeza de cookies ao carregar a página (escopo padrão do domínio atual)
+        (function clearAllCookies() {
+            try {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i];
+                    const eqPos = cookie.indexOf('=');
+                    const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+                    // Tenta remover em caminhos comuns
+                    const paths = ['/', window.location.pathname || '/'];
+                    paths.forEach(function(path) {
+                        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=' + path + ';';
+                    });
+                }
+            } catch (e) {
+                console.warn('Falha ao limpar cookies:', e);
+            }
+        })();
+
         // Confetti Explosion on Page Load
         function createConfettiExplosion() {
             const confettiContainer = document.getElementById('confetti-container');
             const colors = ['#ffd700', '#ff6b35', '#e50914', '#2ac682', '#0066cc'];
-            
-            // Play confetti sound when visual effect starts
-            playConfettiSoundOnce();
             
             // Create MORE confetti explosion from top of screen - INSTANT
             for (let i = 0; i < 400; i++) { // Increased from 200 to 400
@@ -799,59 +846,67 @@
             });
         }
 
-        // No button sounds
+        // Add sound to buttons
         function addSoundToButtons() {
-            // No sounds for any buttons
-        }
-
-        // Confetti Sound Effect - Play once with auto-play and user interaction fallback
-        let confettiSoundPlayed = false;
-        
-        function playConfettiSoundOnce() {
-            if (confettiSoundPlayed) return; // Prevent multiple plays
-            
-            const audio = new Audio('audios/Confetti.mp3');
-            audio.volume = 0.8;
-            audio.preload = 'auto';
-            
-            audio.play().then(() => {
-                confettiSoundPlayed = true;
-                console.log('Confetti sound played successfully');
-            }).catch(e => {
-                console.log('Confetti sound auto-play failed:', e);
-                // Will try again on user interaction
-            });
-        }
-        
-        // Setup user interaction fallback
-        function setupUserInteractionFallback() {
-            const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
-            
-            function handleFirstInteraction() {
-                if (!confettiSoundPlayed) {
-                    playConfettiSoundOnce();
-                }
-                // Remove all event listeners after first interaction
-                events.forEach(event => {
-                    document.removeEventListener(event, handleFirstInteraction);
-                });
+            // Add sound to CTA button
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', playButtonSound);
             }
             
-            // Add event listeners for first user interaction
-            events.forEach(event => {
-                document.addEventListener(event, handleFirstInteraction, { once: true });
-            });
+            // Add sound to secondary button
+            const secondaryButton = document.querySelector('.secondary-button');
+            if (secondaryButton) {
+                secondaryButton.addEventListener('click', playButtonSound);
+            }
         }
-
-        // Initialize sound on page load
+        
+        // Initialize page on load
         document.addEventListener('DOMContentLoaded', function() {
             addSoundToButtons();
-            
-            // Try to play sound immediately
-            playConfettiSoundOnce();
-            
-            // Setup fallback for user interaction
-            setupUserInteractionFallback();
+        });
+
+        // URL helpers para levar parâmetros para todos os destinos
+        function buildUrlWithMergedParams(targetUrl) {
+            try {
+                const url = new URL(targetUrl, window.location.href);
+                if (url.protocol !== 'http:' && url.protocol !== 'https:') return targetUrl;
+                const current = new URLSearchParams(window.location.search);
+                if ([...current.keys()].length === 0) return url.toString();
+                current.forEach((value, key) => {
+                    url.searchParams.set(key, value);
+                });
+                return url.toString();
+            } catch (_) {
+                const hasQuery = targetUrl.indexOf('?') !== -1;
+                return window.location.search
+                    ? (hasQuery ? (targetUrl + '&' + window.location.search.substring(1)) : (targetUrl + window.location.search))
+                    : targetUrl;
+            }
+        }
+
+        function redirectWithParams(targetUrl) {
+            window.location.href = buildUrlWithMergedParams(targetUrl);
+        }
+
+        // Forçar todos os links <a> a carregarem os parâmetros atuais
+        document.addEventListener('click', function(e) {
+            const anchor = e.target && (e.target.closest ? e.target.closest('a[href]') : null);
+            if (!anchor) return;
+            const href = anchor.getAttribute('href');
+            if (!href) return;
+            if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+            const merged = buildUrlWithMergedParams(href);
+            anchor.setAttribute('href', merged);
+        }, true);
+
+        window.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href]').forEach(a => {
+                const href = a.getAttribute('href');
+                if (!href) return;
+                if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+                a.setAttribute('href', buildUrlWithMergedParams(href));
+            });
         });
 
         // Button click handlers
@@ -861,7 +916,7 @@
             if (mainButton) {
                 mainButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    window.location.href = 'https://lastlink.com/p/CF1DC18BB/checkout-payment/';
+                    redirectWithParams('https://lastlink.com/p/CF1DC18BB/checkout-payment/');
                 });
             }
 
@@ -870,7 +925,7 @@
             if (secondaryButton) {
                 secondaryButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    window.location.href = 'https://lastlink.com/p/CB34A30F8/checkout-payment/';
+                    redirectWithParams('https://lastlink.com/p/CB34A30F8/checkout-payment/');
                 });
             }
         }

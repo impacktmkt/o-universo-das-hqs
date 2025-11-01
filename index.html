@@ -100,29 +100,124 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--primary-red);
-            padding: 1rem 0;
+            background: rgba(15, 15, 31, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(229, 9, 20, 0.5);
+            padding: 0.2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: var(--primary-yellow);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            max-width: 70px;
+            height: auto;
             display: block;
-            line-height: 1;
+        }
+
+        /* Menu Hambúrguer */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px;
+            height: 20px;
+            padding: 0;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--primary-yellow);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .menu-container {
+            position: relative;
+        }
+
+        .menu-overlay {
+            display: none;
+        }
+
+        .menu-sidebar {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 250px;
+            background: rgba(15, 15, 31, 0.98);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-red);
+            border-radius: 12px;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            padding: 15px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(229, 9, 20, 0.3);
+            overflow: hidden;
+            display: none;
+        }
+
+        .menu-sidebar.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important;
+        }
+
+        .menu-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-items li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-items a {
+            display: block;
+            padding: 1rem 1.8rem;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .menu-items a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--primary-yellow);
+            padding-left: 2rem;
         }
 
         /* Hero Section */
@@ -133,7 +228,7 @@
             background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--dark-gray) 100%);
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 100px;
         }
 
         .hero::before {
@@ -144,7 +239,7 @@
             right: 0;
             bottom: 0;
             background: 
-                url('Imagens/fundo - Copia.webp') center/cover,
+                url('Imagens/fundo.jpg') center/cover,
                 radial-gradient(circle at 20% 20%, rgba(74, 144, 226, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
@@ -181,6 +276,12 @@
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             display: block;
+        }
+
+        .video-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--dark-gray) 100%);
+            position: relative;
         }
 
         .video-container {
@@ -348,6 +449,73 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 2;
+        }
+
+        /* Info Boxes */
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-box:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+
+        .info-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-yellow);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .info-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 0.3rem;
+            opacity: 0.9;
         }
 
         .comics-carousel {
@@ -1231,6 +1399,11 @@
             border: 2px solid var(--primary-yellow);
         }
 
+        .guarantee-seal {
+            max-width: 180px;
+            height: auto;
+        }
+
         .guarantee h3 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2rem;
@@ -1260,6 +1433,28 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .header {
+                padding: 0.15rem 0;
+            }
+
+            .nav {
+                padding: 0 15px;
+            }
+
+            .logo {
+                max-width: 60px;
+            }
+
+            .menu-sidebar {
+                min-width: 220px;
+                right: -10px;
+            }
+            
+            .menu-items a {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
             .hero-content h1 {
                 font-size: 4rem;
                 letter-spacing: 2px;
@@ -1322,6 +1517,29 @@
             
             .comics-carousel {
                 gap: 0.5rem;
+            }
+
+            .info-boxes {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                margin-top: 2rem;
+            }
+
+            .info-box {
+                padding: 1rem 0.8rem;
+            }
+
+            .info-icon {
+                font-size: 2.2rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .info-title {
+                font-size: 1.1rem;
+            }
+
+            .info-subtitle {
+                font-size: 0.85rem;
             }
             
             .featured-carousel {
@@ -1728,62 +1946,39 @@
             will-change: transform;
         }
 
-        /* Music Toggle Button */
-        .music-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, var(--primary-red), var(--primary-orange));
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
-            transition: all 0.3s ease;
-            font-size: 24px;
-            color: white;
-        }
-
-        .music-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
-        }
-
-        .music-toggle.muted {
-            background: linear-gradient(45deg, var(--text-gray), var(--medium-gray));
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .music-toggle.muted:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Background Music */
-        #backgroundMusic {
-            display: none;
-        }
+        /* Music Toggle Button Removed */
     </style>
   </head>
   <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <a href="#" class="logo">UNIVERSO DAS HQ'S</a>
+            <img src="Imagens/Logo.png" alt="Logo" class="logo">
+            <div class="menu-container">
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- Menu Dropdown -->
+                <div class="menu-sidebar" id="menuSidebar">
+                    <ul class="menu-items">
+                        <li><a href="#inicio" class="menu-link">Início</a></li>
+                        <li><a href="#catalogo" class="menu-link">Catálogo</a></li>
+                        <li><a href="#depoimentos" class="menu-link">Depoimentos</a></li>
+                        <li><a href="#garantir-acesso" class="menu-link">Garantir acesso</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="inicio" class="hero">
         <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">A MAIOR COLEÇÃO DIGITAL DO BRASIL</div>
                     <h1><span class="highlight-number">+70.000</span> HQS COMPLETAS</h1>
-                
                 
                 <h2 style="margin-top: 2rem;">O QUE VOCÊ VAI RECEBER:</h2>
                 <img src="Imagens/mockup - Copia.webp" alt="Mockup do App" class="hero-mockup">
@@ -1794,9 +1989,12 @@
     </section>
 
     <!-- Comics Carousel -->
-    <section class="comics-section">
+    <section id="catalogo" class="comics-section">
         <div class="container">
             <h2 class="section-title">Novos quadrinhos <span class="highlight-days">todos os dias</span></h2>
+            <p class="section-subtitle" style="text-align: center; color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9;">
+                Novas HQs adicionadas diariamente!
+            </p>
             <div class="carousel-container">
                 <div class="comics-carousel" id="comicsCarousel">
                 <div class="comic-card">
@@ -1911,11 +2109,42 @@
                         <div class="comic-title">Scarlet Witch</div>
                         <div class="comic-series">Marvel</div>
                     </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- Info Boxes -->
+        <div class="container" style="margin-top: 3rem;">
+            <div class="info-boxes">
+                <div class="info-box">
+                    <div class="info-icon">💾</div>
+                    <h3 class="info-title">+1000GB de conteúdos</h3>
+                </div>
+                <div class="info-box">
+                    <div class="info-icon">⚡</div>
+                    <h3 class="info-title">Acesso imediato</h3>
+                    <p class="info-subtitle">Sem espera</p>
+                </div>
+                <div class="info-box">
+                    <div class="info-icon">🔒</div>
+                    <h3 class="info-title">Ambiente seguro e organizado</h3>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">POR DENTRO DO NOSSO APP:</h2>
+            <div class="video-container" style="margin: 2rem auto; max-width: 800px;">
+                <script src="https://fast.wistia.com/player.js" async></script>
+                <script src="https://fast.wistia.com/embed/m5uogzhwyc.js" async type="module"></script>
+                <style>wistia-player[media-id='m5uogzhwyc']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/m5uogzhwyc/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style> 
+                <wistia-player media-id="m5uogzhwyc" aspect="0.5625"></wistia-player>
+            </div>
+        </div>
+    </section>
 
     <!-- Features Section -->
     <section class="features">
@@ -1956,7 +2185,7 @@
     </section>
 
     <!-- Feedbacks Section -->
-    <section class="feedbacks">
+    <section id="depoimentos" class="feedbacks">
         <div class="container">
             <div class="feedback-badge">+1500 PESSOAS SATISFEITAS</div>
             <h2 class="feedback-title">O QUE NOSSOS CLIENTES DIZEM</h2>
@@ -2134,7 +2363,7 @@
 
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+    <section id="garantir-acesso" class="pricing">
         <div class="container">
             <h2 class="pricing-title">Escolha seu <span class="highlight">plano</span></h2>
             <div class="pricing-grid">
@@ -2168,7 +2397,7 @@
     <section class="guarantee">
         <div class="container">
             <div class="guarantee-content">
-                <img src="Imagens/selo.webp" alt="Selo de Garantia" class="guarantee-seal">
+                <img src="Imagens/selo30d.png" alt="Selo de Garantia" class="guarantee-seal">
                 <h3>Garantia Blindada de 30 Dias</h3>
                 <p>Seu risco é zero. Se por qualquer motivo não gostar, devolvemos 100% do seu dinheiro.</p>
             </div>
@@ -2243,15 +2472,9 @@
         </div>
     </footer>
 
-    <!-- Background Music -->
-    <audio id="backgroundMusic" loop>
-        <source src="audios/1003 editada.MP3" type="audio/mpeg">
-    </audio>
+    <!-- Background Music Removed -->
 
-    <!-- Music Toggle Button -->
-    <button class="music-toggle" id="musicToggle" title="Desativar/Ativar música de fundo">
-        🔊
-    </button>
+    <!-- Music Toggle Button Removed -->
 
     <script>
         // Button Sound Effect
@@ -2276,63 +2499,89 @@
             });
         }
 
-        // Background Music Control
-        let backgroundMusic = null;
-        let isMusicMuted = false;
-
-        function initBackgroundMusic() {
-            backgroundMusic = document.getElementById('backgroundMusic');
-            const musicToggle = document.getElementById('musicToggle');
-            
-            // Check if user has previously muted music
-            const savedMuteState = localStorage.getItem('musicMuted');
-            if (savedMuteState === 'true') {
-                isMusicMuted = true;
-                musicToggle.classList.add('muted');
-                musicToggle.innerHTML = '🔇';
-            } else {
-                // Try to play music on user interaction
-                document.addEventListener('click', function() {
-                    if (!isMusicMuted && backgroundMusic.paused) {
-                        backgroundMusic.volume = 0.15; // Volume baixo para não incomodar
-                        backgroundMusic.play().catch(e => {
-                            console.log('Background music play failed:', e);
-                        });
-                    }
-                }, { once: true });
-            }
-
-            // Toggle music on button click
-            musicToggle.addEventListener('click', function() {
-                if (isMusicMuted) {
-                    // Unmute
-                    isMusicMuted = false;
-                    musicToggle.classList.remove('muted');
-                    musicToggle.innerHTML = '🔊';
-                    backgroundMusic.volume = 0.15;
-                    backgroundMusic.play().catch(e => {
-                        console.log('Background music play failed:', e);
-                    });
-                    localStorage.setItem('musicMuted', 'false');
-                } else {
-                    // Mute
-                    isMusicMuted = true;
-                    musicToggle.classList.add('muted');
-                    musicToggle.innerHTML = '🔇';
-                    backgroundMusic.pause();
-                    localStorage.setItem('musicMuted', 'true');
-                }
-            });
-        }
+        // Background Music Control Removed
 
         // Initialize sound on page load
         document.addEventListener('DOMContentLoaded', function() {
             addSoundToButtons();
-            initBackgroundMusic();
+            
+            // Menu Toggle Functionality
+            const menuToggle = document.getElementById('menuToggle');
+            const menuSidebar = document.getElementById('menuSidebar');
+            const menuLinks = document.querySelectorAll('.menu-link');
+
+            function openMenu() {
+                if (menuToggle) {
+                    menuToggle.classList.add('active');
+                }
+                if (menuSidebar) {
+                    menuSidebar.style.display = 'block';
+                    setTimeout(() => {
+                        menuSidebar.classList.add('active');
+                    }, 10);
+                }
+            }
+
+            function closeMenu() {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (menuSidebar) {
+                    menuSidebar.classList.remove('active');
+                    setTimeout(() => {
+                        if (!menuSidebar.classList.contains('active')) {
+                            menuSidebar.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            }
+
+            // Toggle menu on button click
+            if (menuToggle && menuSidebar) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isActive = menuSidebar.classList.contains('active');
+                    if (isActive) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                });
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (menuSidebar && menuSidebar.classList.contains('active')) {
+                    if (!menuSidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                        closeMenu();
+                    }
+                }
+            });
+
+            // Close menu when clicking a menu link and scroll to section
+            if (menuLinks && menuLinks.length > 0) {
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        closeMenu();
+                        
+                        if (targetSection) {
+                            setTimeout(() => {
+                                targetSection.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 300); // Wait for menu to close
+                        }
+                    });
+                });
+            }
         });
 
         // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not(.menu-link)').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -2389,23 +2638,63 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.98)';
+                header.style.background = 'rgba(15, 15, 31, 0.85)';
+                header.style.padding = '0.15rem 0';
             } else {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.background = 'rgba(15, 15, 31, 0.75)';
+                header.style.padding = '0.2rem 0';
             }
         });
 
-		// Helper to redirect preserving current URL query parameters
-		function redirectWithParams(targetUrl) {
-			const currentSearch = window.location.search;
-			if (!currentSearch) {
-				window.location.href = targetUrl;
-				return;
+		// Build a URL ensuring current page query params are merged (current page params take precedence)
+		function buildUrlWithMergedParams(targetUrl) {
+			try {
+				const url = new URL(targetUrl, window.location.href);
+				// Skip non-http(s) protocols
+				if (url.protocol !== 'http:' && url.protocol !== 'https:') return targetUrl;
+				const current = new URLSearchParams(window.location.search);
+				if ([...current.keys()].length === 0) return url.toString();
+				// Apply/override each current param into target URL
+				current.forEach((value, key) => {
+					url.searchParams.set(key, value);
+				});
+				return url.toString();
+			} catch (_) {
+				// Fallback: naive concat
+				const hasQuery = targetUrl.indexOf('?') !== -1;
+				return window.location.search
+					? (hasQuery ? (targetUrl + '&' + window.location.search.substring(1)) : (targetUrl + window.location.search))
+					: targetUrl;
 			}
-			const hasQuery = targetUrl.indexOf('?') !== -1;
-			const separator = hasQuery ? '&' : '';
-			window.location.href = hasQuery ? (targetUrl + separator + currentSearch.substring(1)) : (targetUrl + currentSearch);
 		}
+
+		// Helper to redirect preserving/merging current URL query parameters
+		function redirectWithParams(targetUrl) {
+			window.location.href = buildUrlWithMergedParams(targetUrl);
+		}
+
+		// Force all anchor navigations to carry current query params
+		document.addEventListener('click', function(e) {
+			const anchor = e.target && (e.target.closest ? e.target.closest('a[href]') : null);
+			if (!anchor) return;
+			const href = anchor.getAttribute('href');
+			if (!href) return;
+			// Ignore hash, mailto, tel, javascript
+			if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+			const merged = buildUrlWithMergedParams(href);
+			// Update href just-in-time so the browser follows the merged URL
+			anchor.setAttribute('href', merged);
+		}, true);
+
+		// Also rewrite existing anchors on load (covers opening in new tab, context menu, etc.)
+		window.addEventListener('DOMContentLoaded', function() {
+			document.querySelectorAll('a[href]').forEach(a => {
+				const href = a.getAttribute('href');
+				if (!href) return;
+				if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+				a.setAttribute('href', buildUrlWithMergedParams(href));
+			});
+		});
 
 		// Pricing button interactions (no sound)
         document.querySelectorAll('.plan-button').forEach(button => {
