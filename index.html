@@ -1084,6 +1084,140 @@
             display: block;
         }
 
+        .feature-icon-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 0 auto 1rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-img {
+            transform: scale(1.05);
+        }
+
+        .feature-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            color: var(--text-white);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-orange));
+            border: 2px solid var(--primary-red);
+            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+            width: auto;
+        }
+
+        .feature-toggle:hover {
+            background: linear-gradient(45deg, var(--primary-orange), var(--primary-red));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(229, 9, 20, 0.6);
+        }
+
+        .feature-toggle:active {
+            transform: translateY(-1px);
+        }
+
+        .feature-toggle-arrow {
+            transition: transform 0.3s ease;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .feature-card.marvel-open .feature-toggle-arrow {
+            transform: rotate(180deg);
+        }
+
+        .marvel-accordion {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            margin-top: 1rem;
+        }
+
+        .feature-card.marvel-open .marvel-accordion {
+            max-height: 8000px;
+        }
+
+        .marvel-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .marvel-list li {
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .marvel-list li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* DC Accordion */
+        .dc-accordion {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            margin-top: 1rem;
+        }
+
+        .feature-card.dc-open .dc-accordion {
+            max-height: 8000px;
+        }
+
+        .dc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dc-list li {
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .dc-list li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .feature-card.dc-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
         .feature-card h3 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.5rem;
@@ -1091,6 +1225,12 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .feature-card.marvel-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
 
         .feature-card p {
@@ -1513,6 +1653,14 @@
             
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .marvel-list {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .dc-list {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
             
             .comics-carousel {
@@ -2150,15 +2298,147 @@
     <section class="features">
         <div class="container">
             <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">📚</div>
-                    <h3>Marvel Completa</h3>
-                    <p>Homem-Aranha, X-Men, Vingadores, Iron Man, Capitão América, Thor. Todas as sagas icônicas.</p>
+                <div class="feature-card fade-in marvel-card">
+                    <img src="Imagens/Marvel-logo-oficial.webp" alt="Marvel" class="feature-icon-img">
+                    <h3>MARVEL COMPLETA</h3>
+                    <div class="feature-toggle" onclick="toggleMarvelAccordion(this)">
+                        VER HQ's inclusas
+                        <span class="feature-toggle-arrow">▼</span>
+                    </div>
+                    <div class="marvel-accordion">
+                        <ul class="marvel-list">
+                            <li>Adam Warlock</li>
+                            <li>Capitã Carter</li>
+                            <li>Coisa</li>
+                            <li>Demolidor</li>
+                            <li>Elektra</li>
+                            <li>Gata Negra</li>
+                            <li>Homem De Gelo</li>
+                            <li>Jean Grey</li>
+                            <li>Loki</li>
+                            <li>Motoqueiro Fantasma</li>
+                            <li>Pantera Negra</li>
+                            <li>She Hulk</li>
+                            <li>Thor</li>
+                            <li>Alien</li>
+                            <li>Capitã Marvel</li>
+                            <li>Conan</li>
+                            <li>Dentes-de-Sabre</li>
+                            <li>Estrela Polar</li>
+                            <li>Falcão</li>
+                            <li>Groot</li>
+                            <li>Homem-Aranha</li>
+                            <li>Homem-Formiga</li>
+                            <li>Jessica Jones</li>
+                            <li>Luke Cage</li>
+                            <li>Ms. Marvel</li>
+                            <li>Punho de Ferro</li>
+                            <li>Shuri</li>
+                            <li>Ultraman</li>
+                            <li>America Chavez</li>
+                            <li>Capitão América</li>
+                            <li>Coração de Ferro</li>
+                            <li>Doutor Destino</li>
+                            <li>Gwenpool</li>
+                            <li>Hawkeye</li>
+                            <li>Justiceiro</li>
+                            <li>Magneto</li>
+                            <li>Mulher Aranha</li>
+                            <li>Raposa Branca</li>
+                            <li>Soldado Invernal</li>
+                            <li>Vampira</li>
+                            <li>Ângela</li>
+                            <li>Capitão Britânia</li>
+                            <li>Cosmo</li>
+                            <li>Doutor Estranho</li>
+                            <li>Feiticeira Escarlate</li>
+                            <li>Howard o Pato</li>
+                            <li>Hulk</li>
+                            <li>Ka-Zar</li>
+                            <li>Mercúrio</li>
+                            <li>Mulher Invisível</li>
+                            <li>Seda</li>
+                            <li>Spider-Gwen</li>
+                            <li>Venom</li>
+                            <li>Bill Raio Beta</li>
+                            <li>Cristal</li>
+                            <li>Drácula</li>
+                            <li>Felina</li>
+                            <li>Hércules</li>
+                            <li>Kang</li>
+                            <li>Miles Morales</li>
+                            <li>Namor</li>
+                            <li>Senhor Das Estrelas</li>
+                            <li>Surfista Prateado</li>
+                            <li>Visão</li>
+                            <li>Blade</li>
+                            <li>Cavaleiro Da Lua</li>
+                            <li>Darkhawk</li>
+                            <li>Duende Dourado</li>
+                            <li>Galactus</li>
+                            <li>Homem Coisa</li>
+                            <li>Hulkling & Wiccano</li>
+                            <li>Kitty Pryde</li>
+                            <li>Monica Rambeau</li>
+                            <li>Nebulosa</li>
+                            <li>Sentinela</li>
+                            <li>Tempestade</li>
+                            <li>Viúva Negra</li>
+                            <li>Cable</li>
+                            <li>Cavaleiro Negro</li>
+                            <li>Deadpool</li>
+                            <li>Duende Vermelho</li>
+                            <li>Garota Esquilo</li>
+                            <li>Homem de Ferro</li>
+                            <li>Jane Foster</li>
+                            <li>Lobisomen</li>
+                            <li>Morbius</li>
+                            <li>Nova</li>
+                            <li>Shang-Chi</li>
+                            <li>Thanos</li>
+                            <li>Wolverine</li>
+                            <li style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 53, 0.2)); border: 2px solid var(--primary-yellow); font-weight: 700; font-size: 1rem;">e muito mais...</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🦇</div>
-                    <h3>DC Comics Completa</h3>
-                    <p>Batman, Superman, Liga da Justiça, Flash, Mulher-Maravilha, Aquaman. Universo DC sem limites.</p>
+                <div class="feature-card fade-in dc-card">
+                    <img src="Imagens/dc.jpg" alt="DC Comics" class="feature-icon-img">
+                    <h3>DC COMPLETA</h3>
+                    <div class="feature-toggle" onclick="toggleDCAccordion(this)">
+                        VER HQ's inclusas
+                        <span class="feature-toggle-arrow">▼</span>
+                    </div>
+                    <div class="dc-accordion">
+                        <ul class="dc-list">
+                            <li>All In</li>
+                            <li>American Vampire</li>
+                            <li>Aquaman</li>
+                            <li>Arlequina</li>
+                            <li>Batman</li>
+                            <li>Caçador de Marte</li>
+                            <li>Caçadora</li>
+                            <li>Cavaleiros das Trevas</li>
+                            <li>Coringa</li>
+                            <li>Crise nas Infinitas Terras</li>
+                            <li>DC Um Milhão</li>
+                            <li>DCeased</li>
+                            <li>Dick Grayson</li>
+                            <li>Flash</li>
+                            <li>Injustice</li>
+                            <li>Lanterna Verde</li>
+                            <li>Lendas do Universo</li>
+                            <li>Loucura do Pai</li>
+                            <li>Mulher-Maravilha</li>
+                            <li>Os Novos 52</li>
+                            <li>Sereias de Gotham</li>
+                            <li>Shazam</li>
+                            <li>Supergirl</li>
+                            <li>Superman</li>
+                            <li>Universo Absoluto</li>
+                            <li>Wally West</li>
+                            <li style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 53, 0.2)); border: 2px solid var(--primary-yellow); font-weight: 700; font-size: 1rem;">e muito mais...</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">⭐</div>
@@ -2593,6 +2873,18 @@
                 }
             });
         });
+
+        // Marvel Accordion Toggle
+        window.toggleMarvelAccordion = function(toggleElement) {
+            const card = toggleElement.closest('.feature-card');
+            card.classList.toggle('marvel-open');
+        };
+
+        // DC Accordion Toggle
+        window.toggleDCAccordion = function(toggleElement) {
+            const card = toggleElement.closest('.feature-card');
+            card.classList.toggle('dc-open');
+        };
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
