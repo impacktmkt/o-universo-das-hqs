@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎉 OFERTA ESPECIAL - UNIVERSO DAS HQ's</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- UTMify Script -->
     <script
@@ -171,7 +173,7 @@
 
 
         .header {
-            text-align: left;
+            text-align: center;
             margin-bottom: 2rem;
             margin-top: 2rem;
             position: relative;
@@ -186,7 +188,8 @@
         .header-logo {
             max-width: 90px;
             height: auto;
-            margin-bottom: 0;
+            margin: 0 auto;
+            display: block;
         }
 
         .congratulations {
@@ -223,6 +226,7 @@
             font-size: 1.2rem;
             color: var(--text-gray);
             margin-bottom: 2rem;
+            text-align: center;
         }
 
         .top-price-section {
@@ -676,7 +680,8 @@
 
     <div class="container">
         <div class="header">
-            <img src="Imagens/Logo.png" alt="Logo" class="header-logo">
+            <img src="Imagens/Logo.png" alt="Logo" class="header-logo" fetchpriority="high" decoding="async">
+            
             <h1 class="congratulations">🎉 PARABÉNS! VOCÊ GANHOU UM DESCONTO EXCLUSIVO!</h1>
             <p class="subtitle">Oferta especial só para você, que estava prestes a escolher o plano básico.</p>
         </div>
@@ -780,7 +785,7 @@
             const colors = ['#ffd700', '#ff6b35', '#e50914', '#2ac682', '#0066cc'];
             
             // Create MORE confetti explosion from top of screen - INSTANT
-            for (let i = 0; i < 400; i++) { // Increased from 200 to 400
+            for (let i = 0; i < 120; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 
@@ -792,7 +797,7 @@
                 confetti.style.top = y + '%';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 confetti.style.animationDelay = '0s'; // INSTANT - no delay
-                confetti.style.animationDuration = (Math.random() * 2 + 4) + 's'; // Slower: 4-6 seconds
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + 's'; // ~3-5 seconds
                 
                 confettiContainer.appendChild(confetti);
             }
@@ -800,7 +805,7 @@
             // Remove confetti after animation (longer time for slower animation)
             setTimeout(() => {
                 confettiContainer.innerHTML = '';
-            }, 8000); // Increased from 4000 to 8000
+            }, 6000);
         }
 
         // Countdown Timer - 7 minutes and 31 seconds

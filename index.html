@@ -22,7 +22,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAINEL COMICS - +70.000 HQs Completas</title>
-    <meta name="description" content="A MAIOR COLEÇÃO DIGITAL DO BRASIL. Marvel, DC Comics, HQs Nacionais e Edições Raras. Acesso Vitalício.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description" content="A MAIOR COLEÇÃO DIGITAL DO BRASIL. Marvel, DC Comics, HQs variadas e Edições Raras. Acesso Vitalício.">
     
     <!-- UTMify Script -->
     <script
@@ -383,12 +385,25 @@
         /* Comics Carousel */
         .comics-section {
             padding: 4rem 0;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(74, 144, 226, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 60%),
-                linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-gray) 100%);
+            background:
+                radial-gradient(circle at 18% 25%, rgba(229, 9, 20, 0.12) 0%, transparent 40%), /* subtle red glow */
+                radial-gradient(circle at 82% 75%, rgba(42, 198, 130, 0.10) 0%, transparent 42%), /* subtle green glow */
+                radial-gradient(circle at 60% 10%, rgba(255, 215, 0, 0.08) 0%, transparent 45%), /* golden accent */
+                linear-gradient(135deg, var(--darker-bg) 0%, var(--medium-gray) 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        /* Place "todos os dias" on the next line only in this section */
+        .comics-section .section-title .highlight-days {
+            display: block;
+            margin-top: -0.2rem; /* bring closer to previous line */
+        }
+
+        /* Increase size of both lines in this section and tighten spacing */
+        .comics-section .section-title {
+            font-size: 4rem;
+            line-height: 0.9;
         }
 
         .comics-section::before {
@@ -1175,6 +1190,40 @@
             transform: scale(1.05);
         }
 
+        /* Varied (HQS variadas) accordion styles (clone of Marvel) */
+        .feature-card.varied-open .feature-toggle-arrow {
+            transform: rotate(180deg);
+        }
+        .varied-accordion {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            margin-top: 1rem;
+        }
+        .feature-card.varied-open .varied-accordion {
+            max-height: 8000px;
+        }
+        .varied-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .varied-list li {
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+        }
+        .varied-list li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: scale(1.05);
+        }
+
         /* DC Accordion */
         .dc-accordion {
             max-height: 0;
@@ -1228,6 +1277,13 @@
         }
 
         .feature-card.marvel-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Match HQS VARIADAS title style to Marvel/DC */
+        .feature-card.varied-card h3 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
@@ -1346,11 +1402,25 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.8rem;
             color: var(--text-white);
-            margin-bottom: 1rem;
+            margin-bottom: 0.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
             z-index: 10;
+        }
+
+        .vitalicio-badge {
+            display: inline-block;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding: 0.1rem 0.45rem;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #fff5b7 0%, #ffe37a 25%, #ffd100 50%, #ffe37a 75%, #fff5b7 100%);
+            color: #141414;
+            box-shadow: 0 0 18px rgba(255, 215, 0, 0.55), 0 0 36px rgba(255, 215, 0, 0.22);
         }
 
         .plan-price {
@@ -1619,6 +1689,13 @@
                 font-size: 2.5rem;
                 letter-spacing: 2px;
             }
+            .comics-section .section-title {
+                font-size: 3rem;
+                line-height: 0.9;
+            }
+            .comics-section .section-title .highlight-days {
+                margin-top: -0.15rem;
+            }
             
             .featured-comic-card {
                 width: 160px;
@@ -1656,7 +1733,10 @@
             }
 
             .marvel-list {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .varied-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .dc-list {
@@ -1758,6 +1838,10 @@
                 font-size: 2.2rem;
                 letter-spacing: 1px;
             }
+            .comics-section .section-title {
+                font-size: 2.6rem;
+                line-height: 0.95;
+            }
             
             .featured-comic-card {
                 width: 140px;
@@ -1788,6 +1872,9 @@
             
             .section-title {
                 font-size: 2rem;
+            }
+            .comics-section .section-title {
+                font-size: 2.4rem;
             }
             
             .featured-title {
@@ -2130,7 +2217,7 @@
                 
                 <h2 style="margin-top: 2rem;">O QUE VOCÊ VAI RECEBER:</h2>
                 <img src="Imagens/mockup - Copia.webp" alt="Mockup do App" class="hero-mockup">
-                <p>Marvel Completa, DC Comics, HQs Nacionais e Edições Raras. Tudo organizado e em alta qualidade!</p>
+                <p>Marvel Completa, DC Comics, HQs variadas e Edições Raras. Tudo organizado e em alta qualidade!</p>
                 <a href="#pricing" class="cta-button" style="margin-bottom: 3rem;">QUERO ACESSO AGORA</a>
             </div>
         </div>
@@ -2160,7 +2247,7 @@
                     </div>
                 </div>
                 <div class="comic-card">
-                    <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four">
+                    <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four" loading="lazy" decoding="async">
                     <div class="comic-overlay">
                         <div class="comic-title">Fantastic Four</div>
                         <div class="comic-series">Marvel</div>
@@ -2188,14 +2275,14 @@
                     </div>
                 </div>
                 <div class="comic-card">
-                    <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Spider-Man">
+                    <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Spider-Man" loading="lazy" decoding="async">
                     <div class="comic-overlay">
                         <div class="comic-title">Spider-Man</div>
                         <div class="comic-series">Marvel</div>
                     </div>
                 </div>
                 <div class="comic-card">
-                    <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch">
+                    <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch" loading="lazy" decoding="async">
                     <div class="comic-overlay">
                         <div class="comic-title">Scarlet Witch</div>
                         <div class="comic-series">Marvel</div>
@@ -2217,7 +2304,7 @@
                     </div>
                 </div>
                 <div class="comic-card">
-                    <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four">
+                    <img src="hqs/hqs/uploads/picture/image/950863/Fantastic_Four_012-0000.jpg" alt="Fantastic Four" loading="lazy" decoding="async">
                     <div class="comic-overlay">
                         <div class="comic-title">Fantastic Four</div>
                         <div class="comic-series">Marvel</div>
@@ -2245,14 +2332,14 @@
                     </div>
                 </div>
                 <div class="comic-card">
-                    <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Spider-Man">
+                    <img src="hqs/hqs/uploads/picture/image/950070/Miles_Morales_-_Spider-Man_037-000.jpg" alt="Spider-Man" loading="lazy" decoding="async">
                     <div class="comic-overlay">
                         <div class="comic-title">Spider-Man</div>
                         <div class="comic-series">Marvel</div>
                     </div>
                 </div>
                 <div class="comic-card">
-                    <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch">
+                    <img src="hqs/hqs/uploads/picture/image/950652/Scarlet_Witch_008-0000.jpg" alt="Scarlet Witch" loading="lazy" decoding="async">
                     <div class="comic-overlay">
                         <div class="comic-title">Scarlet Witch</div>
                         <div class="comic-series">Marvel</div>
@@ -2265,12 +2352,13 @@
         <div class="container" style="margin-top: 3rem;">
             <div class="info-boxes">
                 <div class="info-box">
-                    <div class="info-icon">💾</div>
-                    <h3 class="info-title">+1000GB de conteúdos</h3>
+                    <div class="info-icon">📚</div>
+                    <h3 class="info-title">+70.000 HQ's</h3>
+                    <p class="info-subtitle">+10.000 GB de conteúdos</p>
                 </div>
                 <div class="info-box">
-                    <div class="info-icon">⚡</div>
-                    <h3 class="info-title">Acesso imediato</h3>
+                    <div class="info-icon">🔄</div>
+                    <h3 class="info-title">Atualizações diárias</h3>
                     <p class="info-subtitle">Sem espera</p>
                 </div>
                 <div class="info-box">
@@ -2440,10 +2528,72 @@
                         </ul>
                     </div>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card fade-in varied-card">
                     <div class="feature-icon">⭐</div>
-                    <h3>HQs Nacionais</h3>
-                    <p>Turma da Mônica Jovem, Graphic MSP, Holy Avenger. Os melhores quadrinistas brasileiros.</p>
+                    <h3>HQS VARIADAS</h3>
+                    <div class="feature-toggle" onclick="toggleVariedAccordion(this)">
+                        VER HQ's inclusas
+                        <span class="feature-toggle-arrow">▼</span>
+                    </div>
+                    <div class="varied-accordion">
+                        <ul class="varied-list">
+                            <li>Ablaze</li>
+                            <li>Avatar</li>
+                            <li>Boom Studios</li>
+                            <li>Darkhorse</li>
+                            <li>Grafic India</li>
+                            <li>Icon</li>
+                            <li>Redbox</li>
+                            <li>Shueisha's Shōnen</li>
+                            <li>Turma da Mônica</li>
+                            <li>Invencible</li>
+                            <li>Star Wars</li>
+                            <li>Xena, A Princesa</li>
+                            <li>Zorro (EBAL)</li>
+                            <li>Tex</li>
+                            <li>Robocop</li>
+                            <li>Conan</li>
+                            <li>Asterix</li>
+                            <li>Constantine</li>
+                            <li>He-Man</li>
+                            <li>Mortal Kombat</li>
+                            <li>Stranger Things</li>
+                            <li>Umbrella Academy</li>
+                            <li>Jurassic Park</li>
+                            <li>The Walking Dead</li>
+                            <li>Spawn</li>
+                            <li>Solomon Kane</li>
+                            <li>Mandrake</li>
+                            <li>Ken Parker</li>
+                            <li>Zagor</li>
+                            <li>Dylan Dog</li>
+                            <li>Sandman Mystery Theatre</li>
+                            <li>Assassin's Creed</li>
+                            <li>Almanaque Tex</li>
+                            <li>Aliens</li>
+                            <li>Ascender</li>
+                            <li>Edward Mãos de Tesoura</li>
+                            <li>Buffy</li>
+                            <li>Indiana Jones</li>
+                            <li>Percy Jackson</li>
+                            <li>Predador</li>
+                            <li>Star Trek</li>
+                            <li>Providence</li>
+                            <li>Monstros Modernos</li>
+                            <li>Edição Maravilhosa</li>
+                            <li>Godzilla Cataclismo</li>
+                            <li>Grandes Figuras</li>
+                            <li>King (Image)</li>
+                            <li>Kingdom Come</li>
+                            <li>Kripta</li>
+                            <li>Ken Parker</li>
+                            <li>Piratas da Barbataria</li>
+                            <li>Último Fantasma</li>
+                            <li>The Boys</li>
+                            <li>Tarzan</li>
+                            <li style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 53, 0.2)); border: 2px solid var(--primary-yellow); font-weight: 700; font-size: 1rem;">e muito mais...</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🔥</div>
@@ -2656,7 +2806,7 @@
                     <button class="plan-button basic">QUERO O PLANO BÁSICO!</button>
                 </div>
                 <div class="pricing-card popular">
-                    <div class="popular-badge">MAIS POPULAR</div>
+                    <div class="popular-badge">ACESSO VITALÍCIO</div>
                     <h3 class="plan-name">Plano Premium</h3>
                     <div class="plan-price">R$ 27,00</div>
                     <div class="plan-period">Pagamento único - acesso para sempre</div>
@@ -2748,7 +2898,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Painel Comics. Todos os direitos reservados.</p>
+            <p>&copy; 2024 Universo das HQ's. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -2877,13 +3027,63 @@
         // Marvel Accordion Toggle
         window.toggleMarvelAccordion = function(toggleElement) {
             const card = toggleElement.closest('.feature-card');
+
+            // Sort Marvel list alphabetically on each toggle, but keep "e muito mais..." as the last item
+            const list = card && card.querySelector('.marvel-list');
+            if (list) {
+                const items = Array.from(list.querySelectorAll('li'));
+                const specials = items.filter(li => /muito\s+mais/i.test(li.textContent));
+                const normals = items.filter(li => !/muito\s+mais/i.test(li.textContent));
+                normals.sort((a, b) => a.textContent.trim().localeCompare(
+                    b.textContent.trim(),
+                    'pt-BR',
+                    { sensitivity: 'base' }
+                ));
+                [...normals, ...specials].forEach(li => list.appendChild(li));
+            }
+
             card.classList.toggle('marvel-open');
         };
 
         // DC Accordion Toggle
         window.toggleDCAccordion = function(toggleElement) {
             const card = toggleElement.closest('.feature-card');
+
+            // Sort DC list alphabetically on each toggle, but keep "e muito mais..." as the last item
+            const list = card && card.querySelector('.dc-accordion .marvel-list, .dc-accordion ul');
+            if (list) {
+                const items = Array.from(list.querySelectorAll('li'));
+                const specials = items.filter(li => /muito\s+mais/i.test(li.textContent));
+                const normals = items.filter(li => !/muito\s+mais/i.test(li.textContent));
+                normals.sort((a, b) => a.textContent.trim().localeCompare(
+                    b.textContent.trim(),
+                    'pt-BR',
+                    { sensitivity: 'base' }
+                ));
+                [...normals, ...specials].forEach(li => list.appendChild(li));
+            }
+
             card.classList.toggle('dc-open');
+        };
+
+        // Varied (HQS variadas) Accordion Toggle
+        window.toggleVariedAccordion = function(toggleElement) {
+            const card = toggleElement.closest('.feature-card');
+
+            const list = card && card.querySelector('.varied-list');
+            if (list) {
+                const items = Array.from(list.querySelectorAll('li'));
+                const specials = items.filter(li => /muito\s+mais/i.test(li.textContent));
+                const normals = items.filter(li => !/muito\s+mais/i.test(li.textContent));
+                normals.sort((a, b) => a.textContent.trim().localeCompare(
+                    b.textContent.trim(),
+                    'pt-BR',
+                    { sensitivity: 'base' }
+                ));
+                [...normals, ...specials].forEach(li => list.appendChild(li));
+            }
+
+            card.classList.toggle('varied-open');
         };
 
         // FAQ Accordion
