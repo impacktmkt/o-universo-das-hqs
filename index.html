@@ -1224,6 +1224,47 @@
             transform: scale(1.05);
         }
 
+        /* Mangás accordion styles (clone of Varied) */
+        .feature-card.mangas-open .feature-toggle-arrow {
+            transform: rotate(180deg);
+        }
+        .mangas-accordion {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            margin-top: 1rem;
+        }
+        .feature-card.mangas-open .mangas-accordion {
+            max-height: 8000px;
+        }
+        .mangas-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .mangas-list li {
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+        }
+        .mangas-list li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Match MANGÁS title style to Marvel/DC/Varied */
+        .feature-card.mangas-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
         /* DC Accordion */
         .dc-accordion {
             max-height: 0;
@@ -1478,6 +1519,17 @@
             color: var(--primary-yellow);
             font-weight: bold;
             font-size: 1.2rem;
+        }
+
+        .plan-features li.negative {
+            color: var(--text-gray);
+            opacity: 0.8;
+        }
+
+        .plan-features li.negative::before {
+            content: '❌';
+            color: var(--primary-red);
+            font-size: 1rem;
         }
 
         .plan-button {
@@ -1736,6 +1788,9 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
             .varied-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .mangas-list {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
@@ -2213,12 +2268,12 @@
         <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">A MAIOR COLEÇÃO DIGITAL DO BRASIL</div>
-                    <h1><span class="highlight-number">+70.000</span> HQS COMPLETAS</h1>
+                    <h1><span class="highlight-number">+70.000</span> HQS E MANGÁS</h1>
                 
                 <h2 style="margin-top: 2rem;">O QUE VOCÊ VAI RECEBER:</h2>
                 <img src="Imagens/mockup - Copia.webp" alt="Mockup do App" class="hero-mockup">
-                <p>Marvel Completa, DC Comics, HQs variadas e Edições Raras. Tudo organizado e em alta qualidade!</p>
-                <a href="#pricing" class="cta-button" style="margin-bottom: 3rem;">QUERO ACESSO AGORA</a>
+                <p>Marvel Completa, DC Comics, HQs variadas, Mangás do Naruto, Dragon ball, One Piece e muito mais!!! Tudo organizado e em alta qualidade!</p>
+                <a href="#garantir-acesso" class="cta-button" style="margin-bottom: 3rem;">QUERO ACESSO AGORA</a>
             </div>
         </div>
     </section>
@@ -2353,7 +2408,7 @@
             <div class="info-boxes">
                 <div class="info-box">
                     <div class="info-icon">📚</div>
-                    <h3 class="info-title">+70.000 HQ's</h3>
+                    <h3 class="info-title">+70.000 HQ's e Mangás</h3>
                     <p class="info-subtitle">+10.000 GB de conteúdos</p>
                 </div>
                 <div class="info-box">
@@ -2595,6 +2650,29 @@
                         </ul>
                     </div>
                 </div>
+                <div class="feature-card fade-in mangas-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>MANGÁS</h3>
+                    <div class="feature-toggle" onclick="toggleMangasAccordion(this)">
+                        VER Mangás inclusos
+                        <span class="feature-toggle-arrow">▼</span>
+                    </div>
+                    <div class="mangas-accordion">
+                        <ul class="mangas-list">
+                            <li>Attack on titan</li>
+                            <li>Bleach</li>
+                            <li>Demon slayer</li>
+                            <li>Dragon ball</li>
+                            <li>Jujutsu kaisen</li>
+                            <li>Naruto</li>
+                            <li>One piece</li>
+                            <li>One punch man</li>
+                            <li>Solo leveling</li>
+                            <li>Vagabond</li>
+                            <li style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 53, 0.2)); border: 2px solid var(--primary-yellow); font-weight: 700; font-size: 1rem;">e muito mais...</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🔥</div>
                     <h3>Edições Raras</h3>
@@ -2802,18 +2880,23 @@
                     <div class="plan-price">R$ 9,90<span class="price-period">/mês</span></div>
                     <ul class="plan-features">
                         <li>Acesso completo ao app</li>
+                        <li class="negative">Não tem atualizações diárias</li>
+                        <li class="negative">Não tem o pack de mangás</li>
+                        <li class="negative">Não tem acesso às HQs raras e edições especiais</li>
+                        <li class="negative">Não tem acesso aos bônus exclusivos</li>
                     </ul>
                     <button class="plan-button basic">QUERO O PLANO BÁSICO!</button>
                 </div>
                 <div class="pricing-card popular">
                     <div class="popular-badge">ACESSO VITALÍCIO</div>
                     <h3 class="plan-name">Plano Premium</h3>
-                    <div class="plan-price">R$ 27,00</div>
+                    <div class="plan-price">R$ 27,90</div>
                     <div class="plan-period">Pagamento único - acesso para sempre</div>
                     <ul class="plan-features">
                         <li>Acesso completo ao App</li>
                         <li>Pagamento único acesso para sempre</li>
                         <li>Atualizações diárias</li>
+                        <li>Acesso ao pack de mangás</li>
                         <li>HQs raras e edições especiais</li>
                         <li>Acesso a Bonus Exclusivos</li>
                     </ul>
@@ -3084,6 +3167,12 @@
             }
 
             card.classList.toggle('varied-open');
+        };
+
+        // Mangás Accordion Toggle
+        window.toggleMangasAccordion = function(toggleElement) {
+            const card = toggleElement.closest('.feature-card');
+            card.classList.toggle('mangas-open');
         };
 
         // FAQ Accordion
