@@ -2236,7 +2236,52 @@
             will-change: transform;
         }
 
-        /* Music Toggle Button Removed */
+        /* Music Toggle Button */
+        .mute-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--primary-yellow);
+            border-radius: 50%;
+            color: var(--text-white);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mute-button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--primary-yellow);
+        }
+
+        .mute-button.muted {
+            background: rgba(255, 0, 0, 0.7);
+            border-color: #ff4444;
+        }
+
+        .mute-button.muted:hover {
+            background: rgba(255, 0, 0, 0.9);
+            box-shadow: 0 0 20px #ff4444;
+        }
+
+        @media (max-width: 768px) {
+            .mute-button {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
     </style>
   </head>
   <body>
@@ -3607,6 +3652,72 @@
                         carousel.style.transition = 'transform 0.3s ease';
                         carousel.style.transform = 'translateX(0)';
                     }
+                });
+            }
+        });
+    </script>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="audios/1003 editada.MP3" type="audio/mpeg">
+    </audio>
+
+    <!-- Mute Button -->
+    <button id="muteButton" class="mute-button" aria-label="Mutar/Desmutar música">
+        <span id="muteIcon">🔊</span>
+    </button>
+
+    <script>
+        // Background Music Control
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const muteButton = document.getElementById('muteButton');
+        const muteIcon = document.getElementById('muteIcon');
+
+        // Try to play music when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Play music with user interaction
+            const playMusic = () => {
+                if (backgroundMusic) {
+                    backgroundMusic.volume = 0.065; // Set volume to 6.5%
+                    backgroundMusic.play().catch(error => {
+                        console.log('Autoplay prevented:', error);
+                    });
+                }
+            };
+
+            // Try to play on first user interaction
+            const tryPlay = () => {
+                playMusic();
+                document.removeEventListener('click', tryPlay);
+                document.removeEventListener('touchstart', tryPlay);
+            };
+
+            document.addEventListener('click', tryPlay);
+            document.addEventListener('touchstart', tryPlay);
+
+            // Mute/Unmute functionality
+            if (muteButton && backgroundMusic) {
+                muteButton.addEventListener('click', function() {
+                    if (backgroundMusic.paused) {
+                        backgroundMusic.play();
+                        muteButton.classList.remove('muted');
+                        muteIcon.textContent = '🔊';
+                    } else {
+                        backgroundMusic.pause();
+                        muteButton.classList.add('muted');
+                        muteIcon.textContent = '🔇';
+                    }
+                });
+
+                // Update icon based on music state
+                backgroundMusic.addEventListener('play', function() {
+                    muteButton.classList.remove('muted');
+                    muteIcon.textContent = '🔊';
+                });
+
+                backgroundMusic.addEventListener('pause', function() {
+                    muteButton.classList.add('muted');
+                    muteIcon.textContent = '🔇';
                 });
             }
         });
